@@ -30,6 +30,8 @@ public class FileOperationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        showNotificationAndStartForeGround();
+
     }
 
     @Override
@@ -95,10 +97,6 @@ public class FileOperationService extends Service {
         startForeground(120, notification);
     }
 
-
-    /*
-Create noticiation channel if OS version is greater than or eqaul to Oreo
-*/
     public void createChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("CHANNEL_ID", "CHANNEL_NAME", NotificationManager.IMPORTANCE_DEFAULT);
